@@ -1,0 +1,26 @@
+package views
+
+import "github.com/Akihira77/fullstack-go-htmx/types"
+import "github.com/Akihira77/fullstack-go-htmx/components"
+
+templ Cars(cars []types.Car) {
+	@Page(true) {
+		<div class="flex flex-col justify-center items-center">
+			<h1 class="text-3xl font-bold text-center my-4">
+				Cars List
+			</h1>
+			<input
+				hx-get="/cars/search"
+				hx-target="#car-list"
+				hx-swap="outerHTML"
+				hx-trigger="keyup changed delay:500ms"
+				type="text"
+				name="search"
+				placeholder="Search for a car"
+				autocomplete="off"
+				class="m-a"
+			/>
+			@components.CarsList(cars)
+		</div>
+	}
+}

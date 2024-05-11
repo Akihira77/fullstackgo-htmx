@@ -1,0 +1,13 @@
+package components
+
+import "github.com/Akihira77/fullstack-go-htmx/types"
+
+templ CarsList(cars []types.Car) {
+	<ul id="car-list" class="flex my-4 flex-wrap m-auto w-2/3">
+		for _, car := range cars {
+			<li>
+				@CarTile(car)
+			</li>
+		}
+	</ul>
+}
